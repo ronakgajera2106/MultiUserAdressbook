@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="ContactCategory.aspx.cs" Inherits="WebPages_Category_ContactCategory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="ContactCategory.aspx.cs" Inherits="AdminPanel_Category_ContactCategory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <title>AddressBook | ContactCategory View
@@ -35,7 +35,7 @@
                     <h4>ContactCategory Page Data</h4>
                 </div>
                 <div class="mb-3" style="width: 90%;">
-                    <asp:HyperLink runat="server" ID="btnEditContactCategory" NavigateUrl="~/WebPages/ContactCategory/ContactCategoryAddEdit.aspx" Text="Go to Add/Edit Page" CssClass="btn btn-success btn-sm" />
+                    <asp:HyperLink runat="server" ID="btnEditContactCategory" NavigateUrl="~/AdminPanel/ContactCategory/ContactCategoryAddEdit.aspx" Text="Go to Add/Edit Page" CssClass="btn btn-success btn-sm" />
                 </div>
                 <div class="col-md-12 mt-3">
                     <asp:GridView ID="gvContactCategoryShow" runat="server" CellPadding="4" EmptyDataText="Null" HorizontalAlign="Center" OnRowCommand="gvContactCategoryShow_RowCommand" Width="90%" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" ForeColor="Black">
@@ -57,7 +57,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Edit">
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" ID="btnEditContactCategory" Text="Edit" CssClass="btn btn-warning btn-sm" CommandName="EditRecord" NavigateUrl='<%# "~/WebPages/ContactCategory/ContactCategoryAddEdit.aspx?ContactCategoryID=" + Eval("ContactCategoryID").ToString().Trim() %>' />
+                                    <asp:HyperLink runat="server" ID="btnEditContactCategory" Text="Edit" CssClass="btn btn-warning btn-sm" CommandName="EditRecord" NavigateUrl='<%# "~/AdminPanel/ContactCategory/ContactCategoryAddEdit.aspx?ContactCategoryID=" + Eval("ContactCategoryID").ToString().Trim() %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

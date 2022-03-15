@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="Contact.aspx.cs" Inherits="WebPages_Contact_Contact" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="Contact.aspx.cs" Inherits="AdminPanel_Contact_Contact" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title>AddressBook | Contact View
@@ -35,7 +35,7 @@
                     <h4>Contact Page Data</h4>
                 </div>
                 <div class="mb-3" style="width: 90%;">
-                    <asp:HyperLink runat="server" ID="btnEditContact" NavigateUrl="~/WebPages/Contact/ContactAddEdit.aspx" Text="Go to Add/Edit Page" CssClass="btn btn-success btn-sm" />
+                    <asp:HyperLink runat="server" ID="btnEditContact" NavigateUrl="~/AdminPanel/Contact/ContactAddEdit.aspx" Text="Go to Add/Edit Page" CssClass="btn btn-success btn-sm" />
                 </div>
                 <div class="col-md-12 mt-3">
                     <asp:GridView ID="gvContactShow" runat="server" CellPadding="4" EmptyDataText="Null" HorizontalAlign="Center" OnRowCommand="gvContactShow_RowCommand" Width="90%" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" ForeColor="Black">
@@ -58,7 +58,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Edit">
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" ID="btnEditContact" Text="Edit" CssClass="btn btn-warning btn-sm" CommandName="EditRecord" NavigateUrl='<%# "~/WebPages/Contact/ContactAddEdit.aspx?ContactID=" + Eval("ContactID").ToString().Trim() %>' />
+                                    <asp:HyperLink runat="server" ID="btnEditContact" Text="Edit" CssClass="btn btn-warning btn-sm" CommandName="EditRecord" NavigateUrl='<%# "~/AdminPanel/Contact/ContactAddEdit.aspx?ContactID=" + Eval("ContactID").ToString().Trim() %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

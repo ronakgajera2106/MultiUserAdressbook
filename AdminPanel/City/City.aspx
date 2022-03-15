@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="City.aspx.cs" Inherits="WebPages_City_City" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="City.aspx.cs" Inherits="AdminPanel_City_City" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title>AddressBook | City View
@@ -35,7 +35,7 @@
                     <h4>City Page Data</h4>
                 </div>
                 <div class="mb-3" style="width: 90%;">
-                    <asp:HyperLink runat="server" ID="btnEditCity" NavigateUrl="~/WebPages/City/CityAddEdit.aspx" Text="Go to Add/Edit Page" CssClass="btn btn-success btn-sm" />
+                    <asp:HyperLink runat="server" ID="btnEditCity" NavigateUrl="~/AdminPanel/City/CityAddEdit.aspx" Text="Go to Add/Edit Page" CssClass="btn btn-success btn-sm" />
                 </div>
                 <div class="col-md-12 mt-3">
                     <asp:GridView ID="gvCityShow" runat="server" CellPadding="4" EmptyDataText="Null" HorizontalAlign="Center" OnRowCommand="gvCityShow_RowCommand" Width="90%" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" ForeColor="Black">
@@ -48,7 +48,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Edit">
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" ID="btnEditCity" Text="Edit" CssClass="btn btn-warning btn-sm" CommandName="EditRecord" NavigateUrl='<%# "~/WebPages/City/CityAddEdit.aspx?CityID=" + Eval("CityID").ToString().Trim() %>' />
+                                    <asp:HyperLink runat="server" ID="btnEditCity" Text="Edit" CssClass="btn btn-warning btn-sm" CommandName="EditRecord" NavigateUrl='<%# "~/AdminPanel/City/CityAddEdit.aspx?CityID=" + Eval("CityID").ToString().Trim() %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

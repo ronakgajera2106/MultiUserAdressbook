@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class WebPages_City_City : System.Web.UI.Page
+public partial class AdminPanel_City_City : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
