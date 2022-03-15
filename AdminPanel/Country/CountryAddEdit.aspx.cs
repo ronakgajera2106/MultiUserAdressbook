@@ -155,7 +155,7 @@ public partial class WebPages_Country_CountryAddEdit : System.Web.UI.Page
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
             objCmd.CommandText = "[dbo].[PR_Country_SelectByUserID&PK]";
-            objCmdAdd.Parameters.AddWithValue("@UserID", Session["UserID"]);
+            objCmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
 
             objCmd.Parameters.AddWithValue("@CountryID", CountryID.ToString().Trim());
 

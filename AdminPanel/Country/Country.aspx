@@ -36,7 +36,7 @@
                     <h4>Country Page Data</h4>
                 </div>
                 <div class="mb-3" style="width: 90%;">
-                    <asp:HyperLink runat="server" ID="btnEditCountry" NavigateUrl="~/WebPages/Country/CountryAddEdit.aspx" Text="Go to Add/Edit Page" CssClass="btn btn-success btn-sm" />
+                    <asp:HyperLink runat="server" ID="btnEditCountry" NavigateUrl="~/AdminPanel/Country/CountryAddEdit.aspx" Text="Go to Add/Edit Page" CssClass="btn btn-success btn-sm" />
                 </div>
                 <div class="col-md-12 mt-3">
                     <asp:GridView ID="gvCountryShow" runat="server" CellPadding="4" EmptyDataText="Null" HorizontalAlign="Center" Width="90%" OnRowCommand="gvCountryShow_RowCommand" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" ForeColor="Black">

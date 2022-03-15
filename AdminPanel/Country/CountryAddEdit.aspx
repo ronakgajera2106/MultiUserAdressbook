@@ -37,7 +37,7 @@
                     </h4>
                 </div>
                 <div class="mb-3" style="width: 90%;">
-                    <asp:HyperLink runat="server" ID="btnEditCountry" NavigateUrl="~/WebPages/Country/Country.aspx" Text="Go to View Page" CssClass="btn btn-success btn-sm" />
+                    <asp:HyperLink runat="server" ID="btnEditCountry" NavigateUrl="~/AdminPanel/Country/Country.aspx" Text="Go to View Page" CssClass="btn btn-success btn-sm" />
                 </div>
                 <div class="container">
                     <div class="row">

@@ -38,7 +38,7 @@ public partial class WebPages_Country_Country : System.Web.UI.Page
     protected void displayCountry()
     {
         #region Connection String
-        SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserMultiUserAddressBookConnectionString"].ConnectionString);
+        SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
 
         #endregion Connection String
 
@@ -105,8 +105,9 @@ public partial class WebPages_Country_Country : System.Web.UI.Page
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_State_DeleteByUserID&PK";
+            objCmd.CommandText = "PR_Country_DeleteByUserID&PK";
             objCmd.Parameters.AddWithValue("@CountryID", CountryID);
+            
 
             objCmd.ExecuteNonQuery();
 

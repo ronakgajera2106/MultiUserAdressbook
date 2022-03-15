@@ -57,7 +57,7 @@ public partial class Login : System.Web.UI.Page
 
         #endregion Assign the Value
 
-        SqlConnection objconn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserMultiUserAddressBookConnectionString"].ConnectionString);
+        SqlConnection objconn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
         try
         {
             if (objconn.State != ConnectionState.Open)
