@@ -91,7 +91,7 @@ public partial class WebPages_Country_CountryAddEdit : System.Web.UI.Page
                 objCmdAdd.CommandText = "PR_Country_UpdateUserID&PK";
                 objCmdAdd.Parameters.AddWithValue("@UserID", Session["UserID"]);
                 objCmdAdd.ExecuteNonQuery();
-                Response.Redirect("~/WebPages/Country/Country.aspx");
+                Response.Redirect("~/AdminPanel/Country/Country.aspx");
 
                 if (objConn.State != ConnectionState.Closed)
                     objConn.Close();
@@ -155,8 +155,10 @@ public partial class WebPages_Country_CountryAddEdit : System.Web.UI.Page
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
             objCmd.CommandText = "[dbo].[PR_Country_SelectByUserID&PK]";
-            objCmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
-
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             objCmd.Parameters.AddWithValue("@CountryID", CountryID.ToString().Trim());
 
             SqlDataReader objSDR = objCmd.ExecuteReader();

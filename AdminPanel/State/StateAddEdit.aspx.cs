@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class WebPages_State_StateAddEdit : System.Web.UI.Page
+public partial class AdminPanel_State_StateAddEdit : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -48,7 +48,11 @@ public partial class WebPages_State_StateAddEdit : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_Country_SelectForDropDownList";
+            objCmd.CommandText = "PR_Country_SelectForDropDownListByUserID";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             #endregion Set Connection and Command Object
 
             #region Command Execute and DataBind
@@ -159,7 +163,11 @@ public partial class WebPages_State_StateAddEdit : System.Web.UI.Page
             }
             else
             {
-                objCmd.CommandText = "PR_State_Insert";
+                objCmd.CommandText = "PR_State_InsretByUserID";
+                if (Session["UserID"] != null)
+                {
+                    objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+                }
                 objCmd.ExecuteNonQuery();
                 objConn.Close();
 
@@ -204,7 +212,11 @@ public partial class WebPages_State_StateAddEdit : System.Web.UI.Page
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "[dbo].[PR_State_SelectByPK]";
+            objCmd.CommandText = "[dbo].[PR_State_SelectByUserID&PK]";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
 
             objCmd.Parameters.AddWithValue("@StateID", StateID.ToString().Trim());
 

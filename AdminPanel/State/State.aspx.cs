@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class WebPages_State_State : System.Web.UI.Page
+public partial class AdminPanel_State_State : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -50,7 +50,12 @@ public partial class WebPages_State_State : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_State_SelectWithCountryNameList";
+            objCmd.CommandText = "PR_State_SelectAllByUserID";
+                
+            if (Session["UserID"] != null)
+            { 
+               objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             #endregion Connection Open and Object Command
 
             #region Data Read , Execute and DataBind
@@ -96,8 +101,12 @@ public partial class WebPages_State_State : System.Web.UI.Page
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_State_DeleteByPK";
+            objCmd.CommandText = "PR_State_DeleteByUserID&PK";
             objCmd.Parameters.AddWithValue("@StateID", StateID);
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             objCmd.ExecuteNonQuery();
 
             #endregion Connection Open , Object Command , Execute Command

@@ -107,7 +107,10 @@ public partial class AdminPanel_Country_Country : System.Web.UI.Page
             objCmd.CommandType = CommandType.StoredProcedure;
             objCmd.CommandText = "PR_Country_DeleteByUserID&PK";
             objCmd.Parameters.AddWithValue("@CountryID", CountryID);
-            
+            if (Session["UserID"] != null)
+            { 
+               objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
 
             objCmd.ExecuteNonQuery();
 
