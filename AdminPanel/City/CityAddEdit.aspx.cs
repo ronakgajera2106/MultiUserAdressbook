@@ -52,7 +52,11 @@ public partial class WebPages_City_CityAddEdit : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_State_SelectForDropDownList";
+            objCmd.CommandText = "PR_City_SelectForDropDownListByUserID";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             #endregion Command Object
 
             #region Execute Data and Data Bind
@@ -159,9 +163,13 @@ public partial class WebPages_City_CityAddEdit : System.Web.UI.Page
                 #region Update Record
 
                 objCmd.Parameters.AddWithValue("@CityID", Request.QueryString["CityID"].ToString().Trim());
-                objCmd.CommandText = "PR_City_UpdateByPK";
+                objCmd.CommandText = "PR_City_UpdateByUserID&PK";
+                if (Session["UserID"] != null)
+                {
+                    objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+                }
                 objCmd.ExecuteNonQuery();
-                Response.Redirect("~/WebPages/City/City.aspx");
+                Response.Redirect("~/AdminPanel/City/City.aspx");
 
                 if (objConn.State != ConnectionState.Closed)
                     objConn.Close();
@@ -214,7 +222,11 @@ public partial class WebPages_City_CityAddEdit : System.Web.UI.Page
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "[dbo].[PR_City_SelectByPK]";
+            objCmd.CommandText = "[dbo].[PR_City_SelectByUserID&PK]";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
 
             objCmd.Parameters.AddWithValue("@CityID", CityID.ToString().Trim());
 

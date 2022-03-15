@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="mb-3" style="width: 90%;">
-                    <asp:HyperLink runat="server" ID="btnEditContactCategory" NavigateUrl="~/WebPages/ContactCategory/ContactCategory.aspx" Text="Go to View Page" CssClass="btn btn-success btn-sm" />
+                    <asp:HyperLink runat="server" ID="btnEditContactCategory" NavigateUrl="~/AdminPanel/ContactCategory/ContactCategory.aspx" Text="Go to View Page" CssClass="btn btn-success btn-sm" />
                 </div>
                 <div class="container">
                     <div class="row">

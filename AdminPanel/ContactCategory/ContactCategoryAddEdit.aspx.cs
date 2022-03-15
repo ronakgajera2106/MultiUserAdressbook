@@ -79,10 +79,14 @@ public partial class WebPages_Category_ContactCategoryAddEdit : System.Web.UI.Pa
             {
                 #region Update Record
                 objCmd.Parameters.AddWithValue("@ContactCategoryID", Request.QueryString["ContactCategoryID"].ToString().Trim());
-                objCmd.CommandText = "PR_ContactCategory_UpdateByPK";
+                objCmd.CommandText = "PR_ContactCetegory_UpdateByUserID&PK";
+                if (Session["UserID"] != null)
+                {
+                    objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+                }
                 objCmd.ExecuteNonQuery();
 
-                Response.Redirect("~/WebPages/ContactCategory/ContactCategory.aspx");
+                Response.Redirect("~/AdminPanel/ContactCategory/ContactCategory.aspx");
                 #endregion Update Record
 
                 #region Close Connection
@@ -93,7 +97,11 @@ public partial class WebPages_Category_ContactCategoryAddEdit : System.Web.UI.Pa
             }
             else
             {
-                objCmd.CommandText = "PR_ContactCategory_Insret";
+                objCmd.CommandText = "PR_ContactCetegory_InsretByUserID";
+                if (Session["UserID"] != null)
+                {
+                    objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+                }
                 objCmd.ExecuteNonQuery();
                 objConn.Close();
 
@@ -136,7 +144,11 @@ public partial class WebPages_Category_ContactCategoryAddEdit : System.Web.UI.Pa
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "[dbo].[PR_ContactCategory_SelectByPK]";
+            objCmd.CommandText = "[dbo].[PR_ContactCetegory_SelectByUserID&PK]";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
 
             objCmd.Parameters.AddWithValue("@ContactCategoryID", ContactCategoryID.ToString().Trim());
 

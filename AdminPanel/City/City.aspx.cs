@@ -49,7 +49,11 @@ public partial class AdminPanel_City_City : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_City_SelectWithStateName";
+            objCmd.CommandText = "PR_City_SelectAllByUserID";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             #endregion Connection Open and Object Command
 
             #region Data Read , Execute and DataBind
@@ -95,7 +99,11 @@ public partial class AdminPanel_City_City : System.Web.UI.Page
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_City_DeleteByPK";
+            objCmd.CommandText = "PR_City_DeleteByUserID&PK";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             objCmd.Parameters.AddWithValue("@CityID", CityID);
             objCmd.ExecuteNonQuery();
 

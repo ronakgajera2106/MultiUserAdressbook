@@ -53,10 +53,11 @@ public partial class AdminPanel_Country_Country : System.Web.UI.Page
             objCmd.CommandType = CommandType.StoredProcedure;
             objCmd.CommandText = "PR_Country_SelectAllByUserID";
 
-            if(Session["UserID"]!=null)
+            if (Session["UserID"] != null) 
+            { 
                 objCmd.Parameters.AddWithValue("@UserId", Session["UserID"].ToString().Trim());
+            }
 
-        
             #endregion Connection Open and Object Command
 
             #region Data Read , Execute and DataBind
