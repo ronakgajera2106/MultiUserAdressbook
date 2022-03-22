@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class WebPages_Contact_ContactAddEdit : System.Web.UI.Page
+public partial class AdminPanel_Contact_ContactAddEdit : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -79,10 +79,12 @@ public partial class WebPages_Contact_ContactAddEdit : System.Web.UI.Page
             if (ddlStateList.SelectedIndex == 0)
             {
                 strErrorMessage += "Kindly Select Country <br/>";
-            } if (ddlCityList.SelectedIndex == 0)
+            }
+            if (ddlCityList.SelectedIndex == 0)
             {
                 strErrorMessage += "Kindly Select Country <br/>";
-            } if (ddlContactCategoryList.SelectedIndex == 0)
+            }
+            if (ddlContactCategoryList.SelectedIndex == 0)
             {
                 strErrorMessage += "Kindly Select Country <br/>";
             }
@@ -160,14 +162,18 @@ public partial class WebPages_Contact_ContactAddEdit : System.Web.UI.Page
             objCmd.Parameters.AddWithValue("@Age", strAge);
             #endregion Create Command
 
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             if (Request.QueryString["ContactID"] != null)
             {
                 #region Update Record
 
                 objCmd.Parameters.AddWithValue("@ContactID", Request.QueryString["ContactID"].ToString().Trim());
-                objCmd.CommandText = "[PR_Contact_UpdateByPK]";
+                objCmd.CommandText = "[PR_Contact_UpdateUserID&PK]";
                 objCmd.ExecuteNonQuery();
-                Response.Redirect("~/WebPages/Contact/Contact.aspx");
+                Response.Redirect("~/AdminPanel/Contact/Contact.aspx");
 
                 if (objConn.State != ConnectionState.Closed)
                     objConn.Close();
@@ -177,7 +183,7 @@ public partial class WebPages_Contact_ContactAddEdit : System.Web.UI.Page
             else
             {
                 #region Insert Record
-                objCmd.CommandText = "PR_Contact_Insert";
+                objCmd.CommandText = "PR_Contact_InsretByUserID";
                 objCmd.ExecuteNonQuery();
                 objConn.Close();
 
@@ -236,7 +242,11 @@ public partial class WebPages_Contact_ContactAddEdit : System.Web.UI.Page
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "[dbo].[PR_Contact_SelectByPK]";
+            objCmd.CommandText = "[dbo].[PR_Contact_SelectByUserID&PK]";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
 
             objCmd.Parameters.AddWithValue("@ContactID", ContactID.ToString().Trim());
 
@@ -366,7 +376,11 @@ public partial class WebPages_Contact_ContactAddEdit : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_Country_SelectForDropDownList";
+            objCmd.CommandText = "PR_Country_SelectForDropDownListByUserID";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             #endregion Set Connection and Command Object
 
             #region Command Execute and DataBind
@@ -423,7 +437,11 @@ public partial class WebPages_Contact_ContactAddEdit : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_State_SelectForDropDownList";
+            objCmd.CommandText = "PR_State_SelectForDropDownListByUserID";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             #endregion Command Object
 
             #region Execute Data and Data Bind
@@ -481,7 +499,11 @@ public partial class WebPages_Contact_ContactAddEdit : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_City_SelectForDropDownList";
+            objCmd.CommandText = "PR_City_SelectForDropDownListByUserID";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             #endregion Command Object
 
             #region Execute Data and Data Bind
@@ -539,7 +561,11 @@ public partial class WebPages_Contact_ContactAddEdit : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_ContactCategory_SelectForDropDownList";
+            objCmd.CommandText = "PR_ContactCategory_SelectForDropDownListByUserID";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             #endregion Command Object
 
             #region Execute Data and Data Bind

@@ -48,7 +48,11 @@ public partial class AdminPanel_Contact_Contact : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_Contact_SelectWithAllOtherId";
+            objCmd.CommandText = "PR_Contact_SelectAllByUserID";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             #endregion Connection Open and Object Command
 
             #region Data Read , Execute and DataBind
@@ -94,7 +98,11 @@ public partial class AdminPanel_Contact_Contact : System.Web.UI.Page
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_Contact_DeleteByPK";
+            objCmd.CommandText = "PR_Contact_DeleteByUserID&PK";
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             objCmd.Parameters.AddWithValue("@ContactID", ContactID);
             objCmd.ExecuteNonQuery();
 

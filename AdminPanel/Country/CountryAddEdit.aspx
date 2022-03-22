@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="CountryAddEdit.aspx.cs" Inherits="WebPages_Country_CountryAddEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="CountryAddEdit.aspx.cs" Inherits="AdminPanel_Country_CountryAddEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>

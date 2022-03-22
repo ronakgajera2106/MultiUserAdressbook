@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class WebPages_City_CityAddEdit : System.Web.UI.Page
+public partial class AdminPanel_City_CityAddEdit : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -52,7 +52,7 @@ public partial class WebPages_City_CityAddEdit : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_City_SelectForDropDownListByUserID";
+            objCmd.CommandText = "PR_State_SelectForDropDownListByUserID";
             if (Session["UserID"] != null)
             {
                 objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
@@ -158,16 +158,16 @@ public partial class WebPages_City_CityAddEdit : System.Web.UI.Page
             objCmd.Parameters.AddWithValue("@STDCode", strStdCode);
             objCmd.Parameters.AddWithValue("@PinCode", strPinCode);
 
+            if (Session["UserID"] != null)
+            {
+                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+            }
             if (Request.QueryString["CityID"] != null)
             {
                 #region Update Record
 
                 objCmd.Parameters.AddWithValue("@CityID", Request.QueryString["CityID"].ToString().Trim());
                 objCmd.CommandText = "PR_City_UpdateByUserID&PK";
-                if (Session["UserID"] != null)
-                {
-                    objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
-                }
                 objCmd.ExecuteNonQuery();
                 Response.Redirect("~/AdminPanel/City/City.aspx");
 
@@ -178,7 +178,7 @@ public partial class WebPages_City_CityAddEdit : System.Web.UI.Page
             }
             else
             {
-                objCmd.CommandText = "PR_City_Insert";
+                objCmd.CommandText = "PR_City_InsertByUserID";
                 objCmd.ExecuteNonQuery();
                 objConn.Close();
 
@@ -206,7 +206,7 @@ public partial class WebPages_City_CityAddEdit : System.Web.UI.Page
         }
     }
 
-    
+
 
     private void fillControl(SqlInt32 CityID)
     {

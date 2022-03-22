@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class WebPages_Country_CountryAddEdit : System.Web.UI.Page
+public partial class AdminPanel_Country_CountryAddEdit : System.Web.UI.Page
 {
     #region Page Load
     protected void Page_Load(object sender, EventArgs e)

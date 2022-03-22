@@ -48,7 +48,7 @@ public partial class AdminPanel_Category_ContactCategory : System.Web.UI.Page
             SqlCommand objCmd = new SqlCommand();
             objCmd.Connection = objConn;
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_ContactCetegory_SelectAllByUserID";
+            objCmd.CommandText = "PR_ContactCategory_SelectAllByUserID";
             if (Session["UserID"] != null)
             {
                 objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
@@ -98,7 +98,7 @@ public partial class AdminPanel_Category_ContactCategory : System.Web.UI.Page
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_Country_DeleteByUserID&PK";
+            objCmd.CommandText = "PR_ContactCategory_DeleteUserID&PK";
             if (Session["UserID"] != null)
             {
                 objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="ContactAddEdit.aspx.cs" Inherits="WebPages_Contact_ContactAddEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="ContactAddEdit.aspx.cs" Inherits="AdminPanel_Contact_ContactAddEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="mb-3" style="width: 90%;">
-                    <asp:HyperLink runat="server" ID="btnEditContact" NavigateUrl="~/WebPages/Contact/Contact.aspx" Text="Go to View Page" CssClass="btn btn-success btn-sm" />
+                    <asp:HyperLink runat="server" ID="btnEditContact" NavigateUrl="~/AdminPanel/Contact/Contact.aspx" Text="Go to View Page" CssClass="btn btn-success btn-sm" />
                 </div>
                 <div class="container">
                     <div class="row">

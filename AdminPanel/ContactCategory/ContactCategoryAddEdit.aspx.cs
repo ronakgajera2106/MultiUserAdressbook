@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class WebPages_Category_ContactCategoryAddEdit : System.Web.UI.Page
+public partial class AdminPanel_Category_ContactCategoryAddEdit : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -79,7 +79,7 @@ public partial class WebPages_Category_ContactCategoryAddEdit : System.Web.UI.Pa
             {
                 #region Update Record
                 objCmd.Parameters.AddWithValue("@ContactCategoryID", Request.QueryString["ContactCategoryID"].ToString().Trim());
-                objCmd.CommandText = "PR_ContactCetegory_UpdateByUserID&PK";
+                objCmd.CommandText = "PR_ContactCategory_UpdateByUserID&PK";
                 if (Session["UserID"] != null)
                 {
                     objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
@@ -97,7 +97,7 @@ public partial class WebPages_Category_ContactCategoryAddEdit : System.Web.UI.Pa
             }
             else
             {
-                objCmd.CommandText = "PR_ContactCetegory_InsretByUserID";
+                objCmd.CommandText = "PR_ContactCategory_InsretByUserID";
                 if (Session["UserID"] != null)
                 {
                     objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
@@ -144,7 +144,7 @@ public partial class WebPages_Category_ContactCategoryAddEdit : System.Web.UI.Pa
 
             SqlCommand objCmd = objConn.CreateCommand();
             objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "[dbo].[PR_ContactCetegory_SelectByUserID&PK]";
+            objCmd.CommandText = "[dbo].[PR_ContactCategory_SelectByUserID&PK]";
             if (Session["UserID"] != null)
             {
                 objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());

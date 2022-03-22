@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="StateAddEdit.aspx.cs" Inherits="WebPages_State_StateAddEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/multiAdressbook.master" AutoEventWireup="true" CodeFile="StateAddEdit.aspx.cs" Inherits="AdminPanel_State_StateAddEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="mb-3" style="width: 90%;">
-                    <asp:HyperLink runat="server" ID="btnEditState" NavigateUrl="~/WebPages/State/State.aspx" Text="Go to View Page" CssClass="btn btn-success btn-sm" />
+                    <asp:HyperLink runat="server" ID="btnEditState" NavigateUrl="~/AdminPanel/State/State.aspx" Text="Go to View Page" CssClass="btn btn-success btn-sm" />
                 </div>
                 <div class="container">
                     <div class="row">

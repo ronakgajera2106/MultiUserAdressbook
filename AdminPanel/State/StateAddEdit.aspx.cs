@@ -152,9 +152,13 @@ public partial class AdminPanel_State_StateAddEdit : System.Web.UI.Page
                 #region Update Record
 
                 objCmd.Parameters.AddWithValue("@StateID", Request.QueryString["StateID"].ToString().Trim());
-                objCmd.CommandText = "PR_State_UpdateByPK";
+                objCmd.CommandText = "PR_State_UpdateByUserID&PK";
+                if (Session["UserID"] != null)
+                {
+                    objCmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString().Trim());
+                }
                 objCmd.ExecuteNonQuery();
-                Response.Redirect("~/WebPages/State/State.aspx");
+                Response.Redirect("~/AdminPanel/State/State.aspx");
 
                 if (objConn.State != ConnectionState.Closed)
                     objConn.Close();
@@ -238,7 +242,8 @@ public partial class AdminPanel_State_StateAddEdit : System.Web.UI.Page
                     {
                         txtStateCode.Text = objSDR["StateCode"].ToString().Trim();
                     }
-                    if(!objSDR["CountryID"].Equals(DBNull.Value)){
+                    if (!objSDR["CountryID"].Equals(DBNull.Value))
+                    {
                         ddlCountryList.SelectedValue = objSDR["CountryID"].ToString().Trim();
                     }
                     break;
