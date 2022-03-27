@@ -57,7 +57,7 @@
             <div class="row">
                     <div class="tex">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Do You Register New Account ?&nbsp; <asp:HyperLink runat="server" ID="hyplinkRegistration" Text="Create New Account" NavigateUrl="~/AdminPanel/Registration.aspx" Font-Bold="True" Font-Size="Medium" CssClass="text-center"/>
+                    Do You Register New Account ?&nbsp; <asp:HyperLink runat="server" ID="hyplinkRegistration" Text="Create New Account" NavigateUrl="~/AdminPanel/Registration/Registrastion.aspx" Font-Bold="True" Font-Size="Medium" CssClass="text-center"/>
                  </div>
                     </div>
         </div>

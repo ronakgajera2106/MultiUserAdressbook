@@ -100,7 +100,7 @@
                 <br />
                 <div class="row">                    
                     <div class="text-center">
-                    Go Back Login Page |&nbsp; <asp:HyperLink runat="server" ID="hyplinkGBLogin" Text="Login Page" NavigateUrl="~/AdminPanel/Login.aspx" Font-Bold="True" Font-Size="Medium" CssClass="text-center"/>
+                    Go Back Login Page |&nbsp; <asp:HyperLink runat="server" ID="hyplinkGBLogin" Text="Login Page" NavigateUrl="~/AdminPanel/Login/Login.aspx" Font-Bold="True" Font-Size="Medium" CssClass="text-center"/>
                  </div>
                     </div>
 
