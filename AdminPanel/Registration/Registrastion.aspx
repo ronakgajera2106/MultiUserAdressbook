@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Registrastion.aspx.cs" Inherits="AdminPanel_Registration_Registrastion" %>
+﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Registrastion.aspx.cs" Inherits="AdminPanel_Registration_Registrastion" %>
 
 <!DOCTYPE html>
 
@@ -21,7 +21,7 @@
                 <br />
                     <div class="row">
                          <div class="col-md-12">
-                             <asp:Label ID="lblMessageSignup" runat="server" ForeColor="Red" />
+                             <asp:Label ID="lblMessage" runat="server" ForeColor="Red" />
                         </div>
                     </div>
                     <br />
@@ -93,7 +93,7 @@
 
                 <div class="row">                   
                     <div class="text-center">
-                        <asp:Button runat="server" ID="btnSignup" Text="Sign Up" CssClass="btn btn-success" Font-Bold="True"/>
+                        <asp:Button runat="server" ID="btnSignup" Text="Sign Up" CssClass="btn btn-success"  Font-Bold="True" OnClick="btnSignup_Click"/>
                      </div>                  
                 </div>
 

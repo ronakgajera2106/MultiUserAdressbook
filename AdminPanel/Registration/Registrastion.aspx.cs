@@ -11,14 +11,14 @@ using System.Web.UI.WebControls;
 
 public partial class AdminPanel_Registration_Registrastion : System.Web.UI.Page
 {
-    private object objConn;
-    private object lblMessage;
+    
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-    protected void btnRegister_Click(object sender, EventArgs e)
+
+    protected void btnSignup_Click(object sender, EventArgs e)
     {
 
         #region local variable
@@ -65,7 +65,7 @@ public partial class AdminPanel_Registration_Registrastion : System.Web.UI.Page
 
         if (strErrorMessage != String.Empty)
         {
-            lblMessage.Text = "Kindly Solve following Error(s) <br/>" + strErrorMessage;
+            lblMessage.Text = "Kindly Solve following Error(s) <br/>";
             return;
         }
         #endregion Server side validation
@@ -95,7 +95,7 @@ public partial class AdminPanel_Registration_Registrastion : System.Web.UI.Page
 
 
         #region Connection String
-        SqlConnection objconn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
+        SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
         #endregion Connection String
         try
         {
@@ -112,10 +112,10 @@ public partial class AdminPanel_Registration_Registrastion : System.Web.UI.Page
 
 
             objCmd.Parameters.AddWithValue("@UserName", strUserName);
-            objCmd.Parameters.AddWithValue("@Email", strEmail);
-            objCmd.Parameters.AddWithValue("@Password", strPassword);
-            objCmd.Parameters.AddWithValue("@ContactNo", strContactNo);
-            objCmd.Parameters.AddWithValue("@DisplayName", strDisplayName);
+            objCmd.Parameters.AddWithValue("@UserEmail", strEmail);
+            objCmd.Parameters.AddWithValue("@UserPassword", strPassword);
+            objCmd.Parameters.AddWithValue("@UserMobile", strContactNo);
+            objCmd.Parameters.AddWithValue("@UserDisplayName", strDisplayName);
 
             objCmd.ExecuteNonQuery();
 
@@ -123,7 +123,7 @@ public partial class AdminPanel_Registration_Registrastion : System.Web.UI.Page
             Response.Redirect("~/AdminPanel/Login/Login.aspx", true);
 
 
-            textUserName.Text = txtDisplayName = String.Empty;
+            txtUserName.Text = txtDisplayName.Text = String.Empty;
             txtPassword.Text = String.Empty;
             txtEmail.Text = txtContactno.Text = String.Empty;
 
@@ -140,7 +140,7 @@ public partial class AdminPanel_Registration_Registrastion : System.Web.UI.Page
         {
             #region Exception Message
             lblMessage.Text = ex.Message;
-            #region Exception Message
+            #endregion Exception Message
         }
         finally
         {
